@@ -2,13 +2,26 @@
 
 -------------------
 
-##The idea:
+## To get started:
+
+Clone down this repo and run the following commands in your terminal
+
+```
+npm i
+npm run knex migrate:latest
+npm run knex seed:run
+npm run dev
+```
+
+-------------------
+
+## The idea:
 
 What is compound interest??  Ask a normal 10 year old that and they probably won’t know.  It can be surprising how long some people remain in the dark about basic knowledge of money and the responsibility required to make, maintain and grow monetary portfolios.  Kids Finance (pending name change)is an application designed to get kids talking about money, with exposure to money talk, investing, business terminology and general financing information.
 
 -------------------
 
-##How the App will work:
+## How the App will work:
 
 I envision this app to facilitate a wide age range from early schooling to the end of high school.  A simple question where you select your age bracket, and a site tailored to that bracket will be viewed by the user.  Early ages will be more kid friendly, with bigger fonts, smaller words, simple terminology and pictures to demonstrate.  Sophistication increases with age.
 Another aspect of the app will be similar to a family banking app where administrators AKA parents can set up accounts for their users AKA children and this can be used as a tool to deposit pocket money and other allowances.  Currently, there is no plan to integrate a real way to hold money so all monetary values contained in the app would be up to the parents to distribute at the appropriate time.
@@ -44,4 +57,4 @@ Node.js and Express will be used to round out the stack
 
 -------------------
 
-To Be Continued...
+## To Be Continued...
