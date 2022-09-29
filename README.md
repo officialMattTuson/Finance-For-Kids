@@ -1,4 +1,4 @@
-#### Welcome to Finance For Kids
+# Welcome to Finance For Kids
 
 -------------------
 
