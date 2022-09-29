@@ -1,25 +1,56 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useAuth0 } from '@auth0/auth0-react'
+import { clearLoggedInUser, updateLoggedInUser } from '../actions/loggedInUser'
+import { useCacheUser } from '../auth0-utils'
+import { getUser } from '../apis/users'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
-import { fetchFruits } from '../actions'
+import Nav from './Nav'
+import Register from './Register'
+import Home from './Home'
 
-function App() {
-  const fruits = useSelector((state) => state.fruits)
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(fetchFruits())
-  }, [])
+
+
+  function App() {
+
+    useCacheUser()
+  
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    
+    const { isAuthenticated, getAccessTokenSilently } = useAuth0()
+  
+    useEffect(() => {
+      if (!isAuthenticated) {
+        dispatch(clearLoggedInUser())
+      } else {
+        getAccessTokenSilently()
+          .then((token) => getUser(token))
+          .then((userInDb) => {
+            userInDb
+              ? dispatch(updateLoggedInUser(userInDb))
+              : navigate('/register')
+          })
+          .catch((err) => console.error(err))
+      }
+    }, [isAuthenticated])
+
 
   return (
-    <>
-      <div className="app">
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
-        <ul>
-          {fruits.map((fruit) => (
-            <li key={fruit}>{fruit}</li>
-          ))}
-        </ul>
+     <>
+      <div>
+        <header className="header">
+          <h1>Kids Finance</h1>
+          <Nav />
+        </header>
       </div>
+      <section className="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </section>
     </>
   )
 }
