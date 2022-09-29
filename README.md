@@ -1,4 +1,4 @@
-### Welcome to Finance For Kids
+#### Welcome to Finance For Kids
 
 -------------------
 
@@ -44,9 +44,14 @@ iii Interest Options
 7. Investment and Interest Options can be displayed to the child along with learning tools to assist them
 8. Withdrawals can be dealt with by parent admins as they wish.  Generally, fork out the money parents
 
-## What this application will use:
+-------------------
+
+### Tech Planning
 
 -------------------
+
+## What this application will use:
+
 
 This app will use a Material UI styling framework to create a well structured and streamlined interface for our users to interact with.
 React will be our front end language we use to complete this application.  This will be combined with Redux to hold better control over information that may be needed by multiple components and can affect their ability to work together
