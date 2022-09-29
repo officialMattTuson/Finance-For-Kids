@@ -42,45 +42,29 @@ function Register() {
   }
 
   return (
-    <>
     <div className="container">
-      <div className="section is-medium m-6">
       {errorMsg && <p onClick={hideError}>Error: {errorMsg}</p>}
       <form onSubmit={handleSubmit}>
-
-            <div className="box p-4 m-4">
-              <div className="mx-3">
-              <h3 className="subtitle is-3">Create Your Profile</h3>
-              <h5 className="subtitle is-5">Enter Your New Username Below</h5>
-
-                <div className="field">
-                  <label className="label">Username</label>
-                  <div className="control has-icons-left">
-                    <input
-                      className="input"
-                      type="text"
-                      id="username"
-                      name="username"
-                      placeholder="username123"
-                      onChange={handleChange}
-                    />
-                    <span className="icon is-small is-left">
-                      <i className="fas fa-user"></i>
-                    </span>
-                  </div>
-                  <button
-                    className="button is-light mt-5"
-                    disabled={!form.username}
-                  >
-                    Save Profile
-                  </button>
-                </div>
+        <div>
+          <h3>Create Your Profile</h3>
+          <h5>Enter Your New Username Below</h5>
+            <div>
+              <label>Username</label>
+              <div>
+                <input
+                  className="input"
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="username123"
+                  onChange={handleChange}
+                />
               </div>
+              <button disabled={!form.username}>Save Profile</button>
             </div>
-          </form>
         </div>
-      </div>
-    </>
+      </form>
+    </div>
   )
 }
 
