@@ -40,10 +40,7 @@ import Accounts from './Accounts'
   return (
      <>
       <div>
-        <header className="header">
-          <h1 >Finance For Kids</h1>
           <Nav />
-        </header>
       </div>
       <section className="main">
         <Routes>
