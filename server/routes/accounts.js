@@ -34,6 +34,7 @@ router.get('/:user_id' , (req,res) => {
 router.post('/', (req, res) => {
     const data = req.body
     data.id = req.body.id
+    data.name = req.body.name
     data.user_id = req.body.user_id
     data.balance = req.body.user_id    
     db.addAccount(data).then((result) => {

@@ -3,6 +3,7 @@ exports.up = function (knex) {
       table.increments('id').primary()
       table.integer('balance')
       table.string('user_id')
+      table.string('name')
     })
   }
   
