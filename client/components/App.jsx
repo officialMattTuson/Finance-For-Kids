@@ -41,7 +41,7 @@ import Accounts from './Accounts'
      <>
       <div>
         <header className="header">
-          <h1>Kids Finance</h1>
+          <h1 >Finance For Kids</h1>
           <Nav />
         </header>
       </div>
