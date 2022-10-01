@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux'
 import Nav from './Nav'
 import Register from './Register'
 import Home from './Home'
-
+import Accounts from './Accounts'
 
 
   function App() {
@@ -49,6 +49,7 @@ import Home from './Home'
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/accounts" element={<Accounts />} />
         </Routes>
       </section>
     </>

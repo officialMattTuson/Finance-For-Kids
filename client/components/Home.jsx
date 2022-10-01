@@ -65,7 +65,7 @@ function Home() {
             </Link>
           )}
           {toggle && (
-            <Link to="/">
+            <Link to="/accounts">
               <Button variant="contained" color = "success">Lets Get Started</Button>
             </Link>
           )}
