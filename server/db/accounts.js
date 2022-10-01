@@ -9,7 +9,6 @@ function getAccountBalance (user_id, db = conn) {
         'username',
         'balance',
     ).where('user_id', user_id)
-
 }
 
 function getAllAccountBalances (db = conn) {
@@ -21,10 +20,20 @@ function getAllAccountBalances (db = conn) {
         'username',
         'balance',
     )
+}
 
+function getAccounts (db=conn) {
+    return db('account')
+}
+
+function addAccount (data, db = conn) {
+    return db('account')
+    .insert(data)
 }
 
 module.exports = {
     getAccountBalance,
-    getAllAccountBalances
+    getAllAccountBalances,
+    addAccount,
+    getAccounts
 }
