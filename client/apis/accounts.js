@@ -15,3 +15,14 @@ export async function addAccountAPI (newAccount) {
     const res = await request.post(accountURL).send(newAccount)
     return res.body
 }
+
+export async function deleteAccountAPI(id, token) {
+    try {
+      const res = await request
+        .delete(`${accountURL}/${id}`)
+        .set('authorization', `Bearer ${token}`)
+      return res.body
+    } catch (err) {
+      console.error(err.message)
+    }
+  }

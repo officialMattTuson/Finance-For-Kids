@@ -32,10 +32,15 @@ function getAllAccountBalances (db = conn) {
     )
 }
 
+function deleteAccount (id, db = conn) {
+    return db('account').where('id', id).del()
+}
+
 
 module.exports = {
     getAccounts,
     addAccount,
     getAccountBalance,
-    getAllAccountBalances
+    getAllAccountBalances, 
+    deleteAccount
 }

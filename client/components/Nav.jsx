@@ -22,86 +22,89 @@ function Nav() {
   return (
     <>
       <div>
-        <h1 style = {{size: "40px"}}>FINANCE FOR KIDS</h1>
-      <nav style = {{
-        display: "flex"
-      }}>
-        <IfNotAuthenticated>
-        <Link
-          to="/"
+        {/* <h1 style={{ size: '40px' }}>FINANCE FOR KIDS</h1> */}
+        <nav
           style={{
-            marginRight: '80px',
-            textDecoration: "none"
+            display: 'flex',
+            marginTop: '30px',
+            backgroundColor: '#e9f542',
+            padding: "25px",
+            marginLeft: 0
           }}
-          onClick={handleSignIn}
-          className="button is-info"
-          >
-          <strong>View Accounts</strong>
-        </Link>
-        <Link
-          to="/"
-          style={{
-            marginRight: '80px',
-            textDecoration: "none"
-            
-          }}
-          onClick={handleSignIn}
-          className="button is-info"
-          >
-          <strong>Recent Transactions</strong>
-        </Link>
+        >
+          <IfNotAuthenticated>
             <div>
               <Link
                 to="/"
                 style={{
                   marginRight: '80px',
-                  textDecoration: "none"
-
+                  textDecoration: 'none',
                 }}
                 onClick={handleSignIn}
-                >
+              >
                 <strong>Sign up</strong>
               </Link>
-              <Link to="/" 
-              style={{
-                marginRight: '80px',
-                textDecoration: "none"
-                
-              }}
-              onClick={handleSignIn}>
+              <Link
+                to="/"
+                style={{
+                  marginRight: '80px',
+                  textDecoration: 'none',
+                }}
+                onClick={handleSignIn}
+              >
                 <b>Log in</b>
               </Link>
             </div>
           </IfNotAuthenticated>
           <IfAuthenticated>
-          <Link
-          to="/"
-          style={{
-            marginRight: '80px',
-            textDecoration: "none"
-          }}
-          className="button is-info"
-          >
-          <strong>View Accounts</strong>
-        </Link>
-        <Link
-          to="/"
-          style={{
-            marginRight: '80px',
-            textDecoration: "none"
-            
-          }}
-          className="button is-info"
-          >
-          <strong>Recent Transactions</strong>
-        </Link>
-            <p className="navbar-item">Hi {user?.username}</p>
-            <Link className="button is-link" to="/" onClick={handleLogOff}>
-              Log off
+            <Link
+              to="/accounts"
+              style={{
+                marginRight: '80px',
+                textDecoration: 'none',
+              }}
+            >
+              <strong>View Accounts</strong>
+            </Link>
+            <Link
+              to="/accounts"
+              style={{
+                marginRight: '80px',
+                textDecoration: 'none',
+              }}
+              className="button is-info"
+            >
+              <strong>Recent Transactions</strong>
+            </Link>
+            <Link
+              to="/"
+              onClick={handleLogOff}
+              style={{
+                marginRight: '80px',
+                textDecoration: 'none',
+              }}
+            >
+              <strong>Log Off</strong>
             </Link>
           </IfAuthenticated>
-      </nav>
-    </div>
+          <Link
+            to="/"
+            style={{
+              marginRight: '80px',
+              textDecoration: 'none',
+            }}
+          >
+            <strong>Home</strong>
+          </Link>
+        <IfAuthenticated>
+          <div style = {{
+            position: 'relative',
+            marginLeft: '1000px'}}>
+          <strong>Hi {user?.username}</strong>
+          </div>
+        </IfAuthenticated>
+        </nav>
+      </div>
     </>
   )
 }

@@ -10,6 +10,7 @@ import Nav from './Nav'
 import Register from './Register'
 import Home from './Home'
 import Accounts from './Accounts'
+import NewAccount from './NewAccount'
 
 
   function App() {
@@ -47,6 +48,7 @@ import Accounts from './Accounts'
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/accounts" element={<Accounts />} />
+          <Route path="/accounts/new" element={<NewAccount />} />
         </Routes>
       </section>
     </>

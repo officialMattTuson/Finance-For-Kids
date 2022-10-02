@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchAccounts } from '../actions/accounts'
+import { deleteAccountThunk, fetchAccounts } from '../actions/accounts'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { Button, CardActionArea } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import { Link } from 'react-router-dom';
 
 function Accounts() {
 
+  const token = useSelector((store) => store.user.token)
   const accounts = useSelector((store) => store.accounts)
   const dispatch = useDispatch()
 
@@ -16,21 +19,25 @@ function Accounts() {
     dispatch(fetchAccounts())
   }, [])
 
+  const handleDelete = (id) => {
+    dispatch(deleteAccountThunk(id))
+  }
   return (
     <>
     <div style= {{
       display: 'flex',
       margin: "30px",
+      marginTop: "130px",
       flexWrap: "wrap"
     }}>
       {accounts?.map((account) => {
         return (
           <>
-             <Card sx={{ maxWidth: 345, margin: "30px" }}>
+             <Card sx={{ width: 450, margin: "30px" }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          height="340"
           image="https://drexel.edu/news/~/media/Drexel/Sites/News/Images/v2/story-images/2022/April/nature-relatedness-stock-bcsize/nature-relatedness-stock-bcsize_16x9.ashx"
           />
         <CardContent>
@@ -40,6 +47,7 @@ function Accounts() {
           <Typography variant="body2" color="text.secondary">
             ${account.balance}
           </Typography>
+      <Button variant="contained" color = "error" onClick = {() => handleDelete(account.id)}>Delete</Button>
         </CardContent>
       </CardActionArea>
 
@@ -48,8 +56,21 @@ function Accounts() {
           </>
         )
       })}
+      <Link to = '/accounts/new'>
+      <AddIcon  style = {{
+        position: 'relative',
+        top: "240px",
+        left:"50px",
+        border: "double",
+        borderRadius: "100%",
+        backgroundColor: "green",
+        color: "white",
+        padding: "4px",
+        cursor: "pointer"
+      }} color="success" fontSize='large'  />
+      </Link>
       </div>
-    </>
+    </> 
   )
 }
 
