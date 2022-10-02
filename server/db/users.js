@@ -4,6 +4,7 @@ module.exports = {
   userExists,
   getUser,
   createUser,
+  getUsers
 }
 
 function userExists(username, db = connection) {
@@ -18,4 +19,8 @@ function getUser(id, db = connection) {
 
 function createUser(user, db = connection) {
   return db('users').insert(user)
+}
+
+function getUsers(db = connection) {
+  return db('users')
 }

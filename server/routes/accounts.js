@@ -42,5 +42,14 @@ router.post('/', (req, res) => {
         })
     })
 
-
+router.delete('/:id', async (req, res) => {
+    try {
+        const id = req.params.id
+        const deleteAccount = await db.deleteAccount(id)
+        res.json(deleteAccount)
+    } catch (err) {
+        res.status(500).json({ msg: err.message })
+    }
+    })
+    
 module.exports = router
