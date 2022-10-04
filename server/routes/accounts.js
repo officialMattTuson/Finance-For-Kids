@@ -36,7 +36,9 @@ router.post('/', (req, res) => {
     data.id = req.body.id
     data.name = req.body.name
     data.user_id = req.body.user_id
-    data.balance = req.body.user_id    
+    data.balance = req.body.balance    
+    console.log(req.body)
+    console.log(data)
     db.addAccount(data).then((result) => {
             res.json(data)
         })
