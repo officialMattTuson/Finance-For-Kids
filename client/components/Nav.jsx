@@ -25,7 +25,7 @@ function Nav() {
         <nav width = '100%'
           style={{
             display: 'flex',
-            backgroundColor: '#e9f542',
+            backgroundColor: 'rgb(250, 200, 152)',
             padding: "35px",
             marginLeft: '-8px',
             marginRight: '-8px',
