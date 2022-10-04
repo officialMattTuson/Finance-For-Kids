@@ -29,11 +29,11 @@ function Home() {
     <div className='container' backgroundImage= "https://566259-1852283-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/10/1-1.jpg">
 
       <section style={{display: 'flex', justifyContent: 'space-around'}}>
-      <Card sx={{ width: 450, margin: '30px', marginTop: '250px', backgroundColor: 'rgb(252, 245, 229)' }}>
+      <Card sx={{ width: 350, margin: '30px', marginTop: '250px', backgroundColor: 'rgb(252, 245, 229)' }}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    height="200"
+                    height="150"
                     image="https://566259-1852283-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/10/1-1.jpg"
                   />
                   <CardContent>
@@ -51,11 +51,11 @@ function Home() {
                   </CardContent>
                 </CardActionArea>
               </Card>
-              <Card sx={{ width: 450, margin: '30px', marginTop: '250px', backgroundColor: 'rgb(252, 245, 229)' }}>
+              <Card sx={{ width: 350, margin: '30px', marginTop: '250px', backgroundColor: 'rgb(252, 245, 229)' }}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    height="200"
+                    height="150"
                     image="https://566259-1852283-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/10/1-1.jpg"
                   />
                   <CardContent>
@@ -64,16 +64,16 @@ function Home() {
                     </Typography>
                     <Typography variant="body1" color="text.secondary">
                       Pocket Money that your kids earn for their weekly set of chores can now accumulate in these accounts.  Kids can be educated
-                      on how to use and maximise their assets.  Don't forget to keep your kids in the loop about their hard earned dollars
+                      on how to use and maximise their assets, but always can withdraw it for a good enough reason  .  Don't forget to keep your kids in the loop about their hard earned dollars
                     </Typography>
                   </CardContent>
                 </CardActionArea>
               </Card>
-              <Card sx={{ width: 450, margin: '30px', marginTop: '250px', backgroundColor: 'rgb(252, 245, 229)' }}>
+              <Card sx={{ width: 350, margin: '30px', marginTop: '250px', backgroundColor: 'rgb(252, 245, 229)' }}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    height="200"
+                    height="150"
                     image="https://566259-1852283-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/10/1-1.jpg"
                   />
                   <CardContent>
