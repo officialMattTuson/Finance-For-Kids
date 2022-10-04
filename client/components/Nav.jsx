@@ -21,15 +21,16 @@ function Nav() {
 
   return (
     <>
-      <div>
         {/* <h1 style={{ size: '40px' }}>FINANCE FOR KIDS</h1> */}
-        <nav
+        <nav width = '100%'
           style={{
             display: 'flex',
-            marginTop: '30px',
-            backgroundColor: '#e9f542',
-            padding: "25px",
-            marginLeft: 0
+            backgroundColor: 'rgb(250, 200, 152)',
+            padding: "35px",
+            marginLeft: '-8px',
+            marginRight: '-8px',
+            marginTop: '-15px',
+            fontSize: '20px'
           }}
         >
           <IfNotAuthenticated>
@@ -104,7 +105,6 @@ function Nav() {
           </div>
         </IfAuthenticated>
         </nav>
-      </div>
     </>
   )
 }
