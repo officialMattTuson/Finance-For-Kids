@@ -39,7 +39,8 @@ router.post('/', async (req, res) => {
       const idArr = await db.addAccount(accountData)
       console.log(idArr)
       const newAccount = await db.getOneAccount(idArr)
-      res.json(newAccount)
+      const result = await db.getAccounts()
+      res.json(result)
     } catch (err) {
       res.status(500).json({ message: err.message })
     }
