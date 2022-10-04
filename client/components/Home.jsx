@@ -29,15 +29,17 @@ function Home() {
     <div className='container' backgroundImage= "https://566259-1852283-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/10/1-1.jpg">
 
       <section style={{display: 'flex', justifyContent: 'space-around'}}>
-      <Card sx={{ width: 450, margin: '30px', marginTop: '250px', backgroundColor: 'rgb(252, 245, 229)' }}>
+        <Link to = '/accounts' style = {{textDecoration: 'none'}}>
+
+      <Card sx={{ width: 450, margin: '30px', marginTop: '250px', backgroundColor: 'rgb(252, 245, 229)', textDecoration: 'none' }}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
                     height="200"
                     image="https://566259-1852283-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/10/1-1.jpg"
-                  />
+                    />
                   <CardContent>
-                    <Typography gutterBottom variant="h4" component="div" textAlign = 'center'>
+                    <Typography gutterBottom variant="h4" component="div" textAlign = 'center' >
                     <h1>Finance For Kids</h1>
                     </Typography>
                     <Typography variant="body1" color="text.secondary">
@@ -51,13 +53,15 @@ function Home() {
                   </CardContent>
                 </CardActionArea>
               </Card>
+                  </Link>
+                  <Link to = '/accounts' style = {{textDecoration: 'none'}}>
               <Card sx={{ width: 450, margin: '30px', marginTop: '250px', backgroundColor: 'rgb(252, 245, 229)' }}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
                     height="200"
                     image="https://566259-1852283-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/10/1-1.jpg"
-                  />
+                    />
                   <CardContent>
                     <Typography gutterBottom variant="h4" component="div" textAlign = 'center'>
                     <h1>Pocket Money <br></br>Savers</h1>
@@ -69,6 +73,8 @@ function Home() {
                   </CardContent>
                 </CardActionArea>
               </Card>
+              </Link>
+              <Link to = '/accounts' style = {{textDecoration: 'none'}}>
               <Card sx={{ width: 450, margin: '30px', marginTop: '250px', backgroundColor: 'rgb(252, 245, 229)' }}>
                 <CardActionArea>
                   <CardMedia
@@ -88,6 +94,7 @@ function Home() {
                   </CardContent>
                 </CardActionArea>
               </Card>
+              </Link>
               
        
       </section>
