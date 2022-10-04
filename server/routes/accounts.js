@@ -3,26 +3,16 @@ const express = require('express')
 const db = require('../db/accounts')
 const router = express.Router()
 
-router.get('/name',(req,res)=> {
+router.get('/',(req,res)=> {
     db.getAccounts()
     .then((result)=> {
         res.json(result)
     })
 } )
 
-router.get('/', (req,res) => {
-    db.getAllAccountBalances()
-    .then((result)=> {
-        res.json(result)
-    })
-    .catch((err) => {
-        console.error(err.message)
-    })
-})
-
 router.get('/:user_id' , (req,res) => {
     const id = req.params.user_id
-    db.getAccountBalance(id)
+    db.getOneAccount(id)
     .then((result)=> {
         res.json(result)
     })
@@ -31,18 +21,29 @@ router.get('/:user_id' , (req,res) => {
     })
 })
 
-router.post('/', (req, res) => {
-    const data = req.body
-    data.id = req.body.id
-    data.name = req.body.name
-    data.user_id = req.body.user_id
-    data.balance = req.body.balance    
-    console.log(req.body)
-    console.log(data)
-    db.addAccount(data).then((result) => {
-            res.json(data)
-        })
-    })
+router.post('/', async (req, res) => {
+    try {
+      const auth0_id = req.user?.sub
+  
+      const {
+        name,
+        balance,
+      } = req.body
+  
+      const accountData = {
+        name,
+        balance,
+        auth0_id,
+      }
+      console.log(accountData)
+      const idArr = await db.addAccount(accountData)
+      console.log(idArr)
+      const newAccount = await db.getOneAccount(idArr)
+      res.json(newAccount)
+    } catch (err) {
+      res.status(500).json({ message: err.message })
+    }
+  })
 
 router.delete('/:id', async (req, res) => {
     try {

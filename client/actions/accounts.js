@@ -1,8 +1,7 @@
-import { addAccountAPI, deleteAccountAPI, getAccountListAPI, viewAccountBalancesAPI } from "../apis/accounts"
+import { addAccountAPI, deleteAccountAPI, getAccountListAPI } from "../apis/accounts"
 
 export const ADD_ACCOUNT = 'ADD_ACCOUNT'
 export const GET_ACCOUNTS = 'GET_ACCOUNTS'
-export const VIEW_BALANCES = 'VIEW_BALANCES'
 export const DEL_ACCOUNT = 'DEL_ACCOUNT'
 
 export function getAccounts (account) {
@@ -26,14 +25,6 @@ export function deleteAccount (account) {
     }
 }
 
-export function viewBalances (balances) {
-    return {
-        type: VIEW_BALANCES,
-        payload: balances
-    }
-}
-
-
 export function fetchAccounts () {
   return async (dispatch) => {
     const result = await getAccountListAPI()
@@ -41,16 +32,10 @@ export function fetchAccounts () {
   }
 }
 
-export function fetchBalances () {
+export function addAccountThunk (newAccount, token) {
     return async (dispatch) => {
-        const result = await viewAccountBalancesAPI()
-        dispatch(viewBalances(result))
-    }
-}
-
-export function addAccountThunk (newAccount) {
-    return async (dispatch) => {
-        const result = await addAccountAPI(newAccount)
+        const result = await addAccountAPI(newAccount, token)
+        console.log(result)
         dispatch(addAccount(result))
     }
 }

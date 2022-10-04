@@ -26,7 +26,7 @@ function Nav() {
           style={{
             display: 'flex',
             backgroundColor: 'rgb(250, 200, 152)',
-            padding: "35px",
+            padding: "45px",
             marginLeft: '-8px',
             marginRight: '-8px',
             marginTop: '-15px',
