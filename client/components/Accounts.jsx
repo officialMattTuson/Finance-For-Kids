@@ -35,6 +35,7 @@ function Accounts() {
         {accounts?.map((account) => {
           return (
             <>
+            <Link to = {`/accounts/${account.id}`} style={{ textDecoration: 'none' }} key={account.id}>
               <Card sx={{ width: 450, margin: '30px' }}>
                 <CardActionArea>
                   <CardMedia
@@ -61,6 +62,7 @@ function Accounts() {
                   </CardContent>
                 </CardActionArea>
               </Card>
+              </Link>
               <br></br>
             </>
           )

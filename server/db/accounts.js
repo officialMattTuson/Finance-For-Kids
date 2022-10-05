@@ -2,7 +2,7 @@ const conn = require('./connection')
 
 function getAccounts (db = conn) {
     return db('account')
-    // .join('users', 'users.auth0_id', 'account.auth0_id')
+    .join('users', 'users.auth0_id', 'account.auth0_id')
     .select()
 }
 

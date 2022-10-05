@@ -21,7 +21,6 @@ function Nav() {
 
   return (
     <>
-        {/* <h1 style={{ size: '40px' }}>FINANCE FOR KIDS</h1> */}
         <nav width = '100%'
           style={{
             display: 'flex',

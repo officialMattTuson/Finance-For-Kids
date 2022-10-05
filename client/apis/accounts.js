@@ -6,20 +6,28 @@ export async function getAccountListAPI () {
     return res.body
 }
 
+export async function getOneAccountAPI (id) {
+  const res = await request.get(`${accountURL}/${id}`)
+  return res.body
+}
+
 export async function addAccountAPI (newAccount, token) {
-    const res = await request
-    .post(accountURL)
-    .set('authorization', `Bearer ${token}`)
-    .send(newAccount)
-    console.log(res.body)
-    return res.body
+    try {
+      const res = await request
+      .post(accountURL)
+      .set('authorization', `Bearer ${token}`)
+      .send(newAccount)
+      return res.body
+    } catch (err) {
+      console.error(err.message)
+    }
 }
 
 export async function deleteAccountAPI(id, token) {
     try {
       const res = await request
-        .delete(`${accountURL}/${id}`)
-        .set('authorization', `Bearer ${token}`)
+      .delete(`${accountURL}/${id}`)
+      .set('authorization', `Bearer ${token}`)
       return res.body
     } catch (err) {
       console.error(err.message)

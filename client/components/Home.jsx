@@ -26,8 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   colorBase: {
     color: '#072A6C',
-    // textDecorationLine: 'underline',
-    // textDecorationColor: '#8BD3E6'
+  
   },
   headerStyle : {
     fontFamily: 'Nunito Sans', 

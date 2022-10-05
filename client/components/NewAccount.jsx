@@ -16,7 +16,7 @@ function AddAccount() {
       ...dataForm,
     })
     await dispatch(addAccountThunk(dataForm, token))
-    console.log(dataForm);
+    console.log('ello',dataForm);
     navigate('/accounts')
   }
 

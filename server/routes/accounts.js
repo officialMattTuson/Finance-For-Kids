@@ -1,5 +1,5 @@
 const express = require('express')
-
+const checkJwt = require('../auth0')
 const db = require('../db/accounts')
 const router = express.Router()
 
@@ -10,8 +10,8 @@ router.get('/',(req,res)=> {
     })
 } )
 
-router.get('/:user_id' , (req,res) => {
-    const id = req.params.user_id
+router.get('/:id' , (req,res) => {
+    const id = req.params.id
     db.getOneAccount(id)
     .then((result)=> {
         res.json(result)
@@ -21,26 +21,19 @@ router.get('/:user_id' , (req,res) => {
     })
 })
 
-router.post('/', async (req, res) => {
+router.post('/',checkJwt, async (req, res) => {
     try {
       const auth0_id = req.user?.sub
-  
-      const {
-        name,
-        balance,
-      } = req.body
-  
-      const accountData = {
-        name,
-        balance,
-        auth0_id,
-      }
+      const { name, balance } = req.body
+      const accountData = { name, balance, auth0_id }
+
+      console.log(auth0_id)
       console.log(accountData)
+      
       const idArr = await db.addAccount(accountData)
-      console.log(idArr)
       const newAccount = await db.getOneAccount(idArr)
-      const result = await db.getAccounts()
-      res.json(result)
+      const allAccounts = await db.getAccounts()
+      res.json(allAccounts)
     } catch (err) {
       res.status(500).json({ message: err.message })
     }

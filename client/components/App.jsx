@@ -54,7 +54,6 @@ const useStyles = makeStyles((theme) => ({
     const classes = useStyles()
   return (
      <>
-     {/* <div className={classes.image}> */}
       <div>
           <Nav />
       </div>
@@ -64,10 +63,9 @@ const useStyles = makeStyles((theme) => ({
           <Route path="/register" element={<Register />} />
           <Route path="/accounts" element={<Accounts />} />
           <Route path="/accounts/new" element={<NewAccount />} />
-          {/* <Route path="/accounts/:account" element={<SelectedAccount />} /> */}
+          <Route path="/accounts/:id" element={<SelectedAccount />} />
         </Routes>
       </section>
-     {/* </div> */}
     </>
   )
 }
