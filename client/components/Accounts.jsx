@@ -19,9 +19,7 @@ function Accounts() {
     dispatch(fetchAccounts())
   }, [])
 
-  const handleDelete = (id) => {
-    dispatch(deleteAccountThunk(id))
-  }
+
   return (
     <>
       <div
@@ -50,15 +48,7 @@ function Accounts() {
                     <Typography variant="body2" color="text.secondary">
                       ${account.balance}
                     </Typography>
-                    <IfAuthenticated>
-                      <Button
-                        variant="contained"
-                        color="error"
-                        onClick={() => handleDelete(account.id)}
-                      >
-                        Delete
-                      </Button>
-                    </IfAuthenticated>
+                    <h3>Click to view Account Details and Actions</h3>
                   </CardContent>
                 </CardActionArea>
               </Card>

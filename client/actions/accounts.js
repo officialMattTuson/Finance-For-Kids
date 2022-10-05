@@ -48,7 +48,6 @@ export function fetchAccounts() {
 export function fetchOneAccount(id) {
   return async (dispatch) => {
     const result = await getOneAccountAPI(id)
-    console.log(result)
     dispatch(getAccount(result))
   }
 }
