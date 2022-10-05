@@ -3,16 +3,48 @@ import { useState } from 'react'
 
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
-import { Button, CardActionArea } from '@mui/material'
+import { makeStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
+import { Button, CardActionArea } from '@mui/material'
+import CardMedia from '@mui/material/CardMedia'
 import Box from '@mui/material/Box'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
 import { Divider, Icon } from '@mui/material'
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    minHeight: '100vh',
+  },
+  colorTitle: {
+    color: '#8BD3E6',
+    textDecorationLine: 'underline',
+    textDecorationColor: '#072A6C'
+  },
+  colorBase: {
+    color: '#072A6C',
+    // textDecorationLine: 'underline',
+    // textDecorationColor: '#8BD3E6'
+  },
+  headerStyle : {
+    fontFamily: 'Nunito Sans', 
+    fontWeight: 'bold',
+    margin: '100px', 
+    fontSize: '100px',
+    
+  },
+  section: {
+    display: 'flex',
+    justifyContent: 'space-around', 
+    width: '100%'
+  },
+  cardStyles : { 
+    width: 350,
+    }
+}))
 
 function Home() {
   const [age, setAge] = useState('')
@@ -23,16 +55,17 @@ function Home() {
     setToggle(true)
 
   }
+  const classes = useStyles()
 
   return (
     <>
     <div style={{width: '100%', textAlign: 'center'}}>
-    <h1>FINANCEFORKIDS</h1>
+      <h1 className={classes.headerStyle}><span className = {classes.colorBase}>FINANCE</span><span className={classes.colorTitle}>FOR</span><span className = {classes.colorBase}>KIDS</span></h1>
     </div>
-      <section style={{display: 'flex', justifyContent: 'space-around', position: 'absolute', bottom: '60px', width: '100%'}}>
+      <section className={classes.section}>
         <Link to = '/accounts' style = {{textDecoration: 'none'}}>
 
-      <Card sx={{ width: 350, marginTop: '350px',  backgroundColor: 'rgb(252, 245, 229)'}}>
+      <Card className = {classes.cardStyles} style = {{backgroundColor: '#8BD3E6'}}>
                 <CardActionArea>
                   {/* <CardMedia
                     component="img"
@@ -41,9 +74,9 @@ function Home() {
                     /> */}
                   <CardContent>
                     <Typography gutterBottom variant="h4" component="div" textAlign = 'center' >
-                    <h1>Finance For Kids</h1>
+                    <h1>Welcome</h1>
                     </Typography>
-                    <Typography variant="body1" color="text.secondary">
+                    <Typography variant="body1" fontWeight='bold' color="text.secondary">
                       Welcome to Finance For Kids. A platform designed to equip kids with
                       the skills and confidence to talk money and grow their skills and
                       knowledge of all things business and finance from younger ages. Lets
@@ -56,7 +89,7 @@ function Home() {
               </Card>
                   </Link>
                   <Link to = '/accounts' style = {{textDecoration: 'none'}}>
-              <Card sx={{ width: 350, marginTop: '350px', backgroundColor: 'rgb(252, 245, 229)' }}>
+              <Card sx={{ width: 350, backgroundColor: '#8BD3E6' }}>
                 <CardActionArea>
                   {/* <CardMedia
                     component="img"
@@ -67,7 +100,7 @@ function Home() {
                     <Typography gutterBottom variant="h4" component="div" textAlign = 'center'>
                     <h1>Pocket Money <br></br>Savers</h1>
                     </Typography>
-                    <Typography variant="body1" color="text.secondary">
+                    <Typography variant="body1" fontWeight='bold' color="text.secondary">
                       Pocket Money that your kids earn for their weekly set of chores can now accumulate in these accounts.  Kids can be educated
                       on how to use and maximise their assets, but always can withdraw it for a good enough reason  .  Don't forget to keep your kids in the loop about their hard earned dollars
                     </Typography>
@@ -76,7 +109,7 @@ function Home() {
               </Card>
               </Link>
               <Link to = '/accounts' style = {{textDecoration: 'none'}}>
-              <Card sx={{ width: 350, marginTop: '350px', backgroundColor: 'rgb(252, 245, 229)' }}>
+              <Card sx={{ width: 350, backgroundColor: '#8BD3E6' }}>
                 <CardActionArea>
                   {/* <CardMedia
                     component="img"
@@ -87,7 +120,7 @@ function Home() {
                     <Typography gutterBottom variant="h4" component="div" textAlign = 'center'>
                     <h1>Investing For <br></br>Newbies</h1>
                     </Typography>
-                    <Typography variant="body1" color="text.secondary">
+                    <Typography variant="body1" fontWeight='bold' color="text.secondary">
                       Kids don't learn about investing until they're fully grown.  And EVEN then, they may not learn about ways
                       to make their money work.  Take your kids on a journey sooner, rather than later, to discover the wonderful
                       world of investing, the stock market and even maybe a crypto tour.
