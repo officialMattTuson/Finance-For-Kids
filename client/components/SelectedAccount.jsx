@@ -6,8 +6,16 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
-import { Button, CardActionArea, CardActions } from '@mui/material'
+import { Button, CardActionArea, ButtonGroup } from '@mui/material'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles(() => ({
+  buttonStyling: {
+    width: '100%',
+    marginBottom: '50px',
+  },
+}))
 
 function SelectedAccount() {
   const { id } = useParams()
@@ -24,12 +32,14 @@ function SelectedAccount() {
     dispatch(deleteAccountThunk(id))
     navigate('/accounts')
   }
+
+  const classes = useStyles()
   return (
     <>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        <Card sx={{ width: 850, margin: '30px' }}>
+      <div>
+        <Card sx={{ width: 750, margin: '30px' }}>
           <CardActionArea
-            sx={{ width: '650', padding: '100px', backgroundColor: '#8BD3E6' }}
+            sx={{ width: '650', padding: '40px', backgroundColor: '#FCF5E5', borderRadius: '10%' }}
           >
             <CardMedia
               component="img"
@@ -55,31 +65,71 @@ function SelectedAccount() {
             </CardContent>
           </CardActionArea>
         </Card>
-        <Card sx={{ width: 850, margin: '30px' }}
-        variant="outlined">
+        <Card sx={{ width: 750, margin: '30px' }} variant="outlined">
           <CardContent>
-            <Typography
-              color="textSecondary"
-              gutterBottom
-            >
-              Word of the Day
-            </Typography>
-            <Typography variant="h5" component="h2">
-              benevolent
-            </Typography>
-            <Typography 
-            color="textSecondary">
-              adjective
-            </Typography>
-            <Typography variant="body2" component="p">
-              well meaning and kindly.
-              <br />
-              {'"a benevolent smile"'}
+            <Typography >
+              <ButtonGroup
+                size="large"
+                color="primary"
+                aria-label="large outlined primary button group"
+                style={{ display: 'flex', flexWrap: 'noWrap' }}
+              >
+                <Button
+                  style={{
+                    width: '100%',
+                    padding: '30px',
+                  }}
+                  variant="contained"
+                  onClick={() => handleDelete(account?.id)}
+                >
+                  Pay Pocket Money
+                </Button>
+                <br></br>
+                <Button
+                  style={{
+                    width: '100%',
+                    padding: '30px',
+                  }}
+                  variant="contained"
+                  onClick={() => handleDelete(account?.id)}
+                >
+                  Interest Calculator
+                </Button>
+                <br></br>
+                <Button
+                  style={{
+                    width: '100%',
+                    padding: '30px',
+                  }}
+                  variant="contained"
+                  onClick={() => handleDelete(account?.id)}
+                >
+                  Invest
+                </Button>
+                <br></br>
+                <Button
+                  style={{
+                    width: '100%',
+                    padding: '30px',
+                  }}
+                  variant="contained"
+                  color="error"
+                  onClick={() => handleDelete(account?.id)}
+                >
+                  WithDraw
+                </Button>
+                <br></br>
+                <Button
+                  style={{ width: '100%', padding: '30px' }}
+                  href="/accounts"
+                  variant="contained"
+                  color="success"
+                >
+                  Return
+                </Button>
+              </ButtonGroup>
             </Typography>
           </CardContent>
-          <CardActions>
-            <Button size="small">Learn More</Button>
-          </CardActions>
         </Card>
       </div>
     </>
