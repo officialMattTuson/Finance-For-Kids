@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { updateAccountThunk } from '../actions/accounts'
 
 export default function UpdateBalance() {
@@ -15,7 +15,7 @@ export default function UpdateBalance() {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(updateAccountThunk(form, token))
-        navigate('/accounts')
+        navigate(`/accounts/${account.id}`)
     }
     
     const handleChange = (e) => {
@@ -40,6 +40,7 @@ export default function UpdateBalance() {
                   onChange={handleChange}
                 />
               </div>
+              <button type='submit'>Submit</button>
       </form>
     </div>
   )

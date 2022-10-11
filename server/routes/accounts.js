@@ -49,21 +49,12 @@ router.delete('/:id', async (req, res) => {
     }
     })
 
-router.put('/',checkJwt, (req, res) => {
-    const { account } = req.body
-    const auth0Id = req.user?.sub
-    const updatedAccount = {
-    id: account.id,
-    auth0_id: auth0Id,
-    name: account.name,
-    balance: account.balance
-    }
-    .then(()=> {
-        db.updateAccount(updatedAccount)})
-     
-    .then(()=> {
-        db.getAccounts()})
-     
-    .then((result) => res.json( { result } ))
-})
+router.patch('/:id/update', async (req, res) => {
+    const id = req.params.id
+    const data = req.body
+    
+    const account = await db.updateAccountBalance(data, id)
+    const accounts = await db.getAccounts()
+    return res.json(accounts)
+  })
 module.exports = router

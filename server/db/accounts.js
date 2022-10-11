@@ -18,8 +18,8 @@ function deleteAccount (id, db = conn) {
     return db('account').where('id', id).del()
 }
 
-function updateAccountBalance (account, db = conn) {
-    return db('account').where('id',account.id).update(account)
+function updateAccountBalance (account,id, db = conn) {
+    return db('account').update(account).where('id',id)
 }
 
 module.exports = {

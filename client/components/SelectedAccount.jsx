@@ -35,7 +35,7 @@ function SelectedAccount() {
   }
 
   const handleUpdate = () => {
-    navigate(`accounts/${id}/update`)
+    navigate(`update`)
   }
   
   const classes = useStyles()

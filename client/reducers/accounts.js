@@ -12,12 +12,7 @@ const reducer = (state = [], action) => {
         case DEL_ACCOUNT:
             return state.filter((account) => account.id != payload)
         case UPDATE_ACCOUNT:
-            return state.map((account) => {
-                const updated = payload.findLast(
-                  (updatedItem) => updatedItem.id == account.id
-                )
-                return updated ? updated : account
-              })
+            return payload
         default:
             return state
         

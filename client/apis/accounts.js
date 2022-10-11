@@ -34,12 +34,12 @@ export async function deleteAccountAPI(id, token) {
     }
   }
 
-export async function updateAccountAPI(account, token) {
+export async function updateAccountAPI(account,id, token) {
   try {
     const res = await request
-      .put('/api/v1/accounts/')
+      .patch(`/api/v1/accounts/${id}/update`)
       .set('authorization', `Bearer ${token}`)
-      .send({ account })
+      .send(account)
     return res.body
   } catch (err) {
     console.error(err.message)
