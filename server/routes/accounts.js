@@ -48,5 +48,22 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json({ msg: err.message })
     }
     })
-    
+
+router.put('/',checkJwt, (req, res) => {
+    const { account } = req.body
+    const auth0Id = req.user?.sub
+    const updatedAccount = {
+    id: account.id,
+    auth0_id: auth0Id,
+    name: account.name,
+    balance: account.balance
+    }
+    .then(()=> {
+        db.updateAccount(updatedAccount)})
+     
+    .then(()=> {
+        db.getAccounts()})
+     
+    .then((result) => res.json( { result } ))
+})
 module.exports = router

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { deleteAccountThunk, fetchOneAccount } from '../actions/accounts'
+import { deleteAccountThunk, fetchOneAccount, updateAccountThunk } from '../actions/accounts'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
@@ -19,6 +19,7 @@ const useStyles = makeStyles(() => ({
 
 function SelectedAccount() {
   const { id } = useParams()
+  const token = useSelector((store) => store.user.token)
   const accounts = useSelector((store) => store.accounts)
   const account = accounts[0]
   const dispatch = useDispatch()
@@ -27,12 +28,16 @@ function SelectedAccount() {
   useEffect(() => {
     dispatch(fetchOneAccount(id))
   }, [])
-
+  
   const handleDelete = (id) => {
     dispatch(deleteAccountThunk(id))
     navigate('/accounts')
   }
 
+  const handleUpdate = () => {
+    navigate(`accounts/${id}/update`)
+  }
+  
   const classes = useStyles()
   return (
     <>
@@ -65,6 +70,7 @@ function SelectedAccount() {
             </CardContent>
           </CardActionArea>
         </Card>
+
         <Card sx={{ width: 750, margin: '30px' }} variant="outlined">
           <CardContent>
             <Typography >
@@ -80,7 +86,7 @@ function SelectedAccount() {
                     padding: '30px',
                   }}
                   variant="contained"
-                  onClick={() => handleDelete(account?.id)}
+                  onClick={() => handleUpdate()}
                 >
                   Pay Pocket Money
                 </Button>

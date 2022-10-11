@@ -18,10 +18,14 @@ function deleteAccount (id, db = conn) {
     return db('account').where('id', id).del()
 }
 
+function updateAccountBalance (account, db = conn) {
+    return db('account').where('id',account.id).update(account)
+}
 
 module.exports = {
     getAccounts,
     addAccount,
     deleteAccount,
-    getOneAccount
+    getOneAccount,
+    updateAccountBalance
 }

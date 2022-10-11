@@ -33,3 +33,15 @@ export async function deleteAccountAPI(id, token) {
       console.error(err.message)
     }
   }
+
+export async function updateAccountAPI(account, token) {
+  try {
+    const res = await request
+      .put('/api/v1/accounts/')
+      .set('authorization', `Bearer ${token}`)
+      .send({ account })
+    return res.body
+  } catch (err) {
+    console.error(err.message)
+  }
+}

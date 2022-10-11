@@ -3,12 +3,14 @@ import {
   getOneAccountAPI,
   deleteAccountAPI,
   getAccountListAPI,
+  updateAccountAPI
 } from '../apis/accounts'
 
 export const ADD_ACCOUNT = 'ADD_ACCOUNT'
 export const GET_ACCOUNTS = 'GET_ACCOUNTS'
 export const DEL_ACCOUNT = 'DEL_ACCOUNT'
 export const GET_ACCOUNT = 'GET_ACCOUNT'
+export const UPDATE_ACCOUNT = 'UPDATE_ACCOUNT'
 
 export function getAccounts(account) {
   return {
@@ -38,6 +40,13 @@ export function deleteAccount(account) {
   }
 }
 
+export function updateAccount(account) {
+  return {
+    type: UPDATE_ACCOUNT,
+    payload: account,
+  }
+}
+
 export function fetchAccounts() {
   return async (dispatch) => {
     const result = await getAccountListAPI()
@@ -63,5 +72,12 @@ export function deleteAccountThunk(id, token) {
   return async (dispatch) => {
     await deleteAccountAPI(id, token)
       dispatch(deleteAccount(id))
+  }
+}
+
+export function updateAccountThunk(account, token) {
+  return async (dispatch) => {
+    const res = await updateAccountAPI(account, token)
+    dispatch(updateAccount(res))
   }
 }

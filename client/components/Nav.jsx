@@ -24,12 +24,12 @@ function Nav() {
         <nav width = '100%'
           style={{
             display: 'flex',
-            backgroundColor: '#8BD3E6',
+            backgroundColor: '#228B22',
             padding: "45px",
             marginLeft: '-12px',
             marginRight: '-12px',
             marginTop: '-15px',
-            fontSize: '20px'
+            fontSize: '20px',
           }}
         >
           <IfNotAuthenticated>
@@ -39,6 +39,7 @@ function Nav() {
                 style={{
                   marginRight: '80px',
                   textDecoration: 'none',
+                  color: 'white'
                 }}
                 onClick={handleSignIn}
               >
@@ -49,6 +50,8 @@ function Nav() {
                 style={{
                   marginRight: '80px',
                   textDecoration: 'none',
+                  color: 'white'
+
                 }}
                 onClick={handleSignIn}
               >
@@ -62,6 +65,8 @@ function Nav() {
               style={{
                 marginRight: '80px',
                 textDecoration: 'none',
+                color: 'white'
+
               }}
             >
               <strong>View Accounts</strong>
@@ -71,6 +76,8 @@ function Nav() {
               style={{
                 marginRight: '80px',
                 textDecoration: 'none',
+                color: 'white'
+
               }}
               className="button is-info"
             >
@@ -82,6 +89,8 @@ function Nav() {
               style={{
                 marginRight: '80px',
                 textDecoration: 'none',
+                color: 'white'
+
               }}
             >
               <strong>Log Off</strong>
@@ -92,6 +101,8 @@ function Nav() {
             style={{
               marginRight: '80px',
               textDecoration: 'none',
+              color: 'white'
+
             }}
           >
             <strong>Home</strong>
@@ -99,7 +110,9 @@ function Nav() {
         <IfAuthenticated>
           <div style = {{
             position: 'relative',
-            marginLeft: '1000px'}}>
+            marginLeft: '1000px',
+            color: 'white'
+          }}>
           <strong>Hi {user?.username}</strong>
           </div>
         </IfAuthenticated>

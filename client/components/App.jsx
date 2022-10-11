@@ -13,6 +13,7 @@ import Home from './Home'
 import Accounts from './Accounts'
 import NewAccount from './NewAccount'
 import SelectedAccount from './SelectedAccount'
+import UpdateBalance from './UpdateBalance'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,6 +65,7 @@ const useStyles = makeStyles((theme) => ({
           <Route path="/accounts" element={<Accounts />} />
           <Route path="/accounts/new" element={<NewAccount />} />
           <Route path="/accounts/:id" element={<SelectedAccount />} />
+          <Route path="/accounts/:id/update" element={<UpdateBalance />} />
         </Routes>
       </section>
     </>
